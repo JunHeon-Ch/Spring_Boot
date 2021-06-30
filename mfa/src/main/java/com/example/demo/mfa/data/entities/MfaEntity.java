@@ -1,5 +1,7 @@
-package com.example.demo.mfa.datas.entities;
+package com.example.demo.mfa.data.entities;
 
+import com.example.demo.mfa.data.dto.MfaDto;
+import com.example.demo.mfa.data.dto.MfaInitDto;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -28,6 +30,20 @@ public class MfaEntity implements Serializable {
 
     @Column(length = 100)
     private String type;
+
+    public MfaEntity(MfaDto mfaDto) {
+        this.id = mfaDto.getId();
+        this.username = mfaDto.getUsername();
+        this.secretKey = mfaDto.getSecretKey();
+        this.type = mfaDto.getType();
+    }
+
+
+    public MfaEntity(MfaInitDto mfaInitDto) {
+        this.username = mfaInitDto.getUsername();
+        this.secretKey = mfaInitDto.getSecretKey();
+        this.type = mfaInitDto.getType();
+    }
 
     @Builder
     public MfaEntity(long id, String username, String secretKey, String type) {

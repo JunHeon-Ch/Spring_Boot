@@ -1,10 +1,19 @@
 package com.example.demo.mfa.configures;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.convert.Jsr310Converters;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+@Configuration
+@EnableWebSecurity
+@EnableJpaRepositories(basePackages = {"com.example.demo.mfa.repositories"})
+@EntityScan(basePackages = {"com.example.demo.mfa.data"}, basePackageClasses = {Jsr310Converters.class})
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override

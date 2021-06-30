@@ -1,6 +1,6 @@
-package com.example.demo.mfa.datas.dto;
+package com.example.demo.mfa.data.dto;
 
-import com.example.demo.mfa.datas.entities.MfaEntity;
+import com.example.demo.mfa.data.entities.MfaEntity;
 import lombok.*;
 
 import java.io.Serializable;

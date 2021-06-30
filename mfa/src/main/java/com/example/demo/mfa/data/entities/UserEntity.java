@@ -1,4 +1,4 @@
-package com.example.demo.mfa.datas.entities;
+package com.example.demo.mfa.data.entities;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
