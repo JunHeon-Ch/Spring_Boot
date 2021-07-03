@@ -1,13 +1,15 @@
 package com.example.demo.mfa.exception;
 
-import javax.naming.AuthenticationException;
+
+import org.springframework.security.core.AuthenticationException;
 
 public class OtpNotProveException extends AuthenticationException {
 
-    public OtpNotProveException(String explanation) {
-        super(explanation);
+    public OtpNotProveException(String msg, Throwable cause) {
+        super(msg, cause);
     }
 
-    public OtpNotProveException() {
+    public OtpNotProveException(String msg) {
+        super(msg);
     }
 }
