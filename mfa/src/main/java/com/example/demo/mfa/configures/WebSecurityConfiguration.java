@@ -2,6 +2,8 @@ package com.example.demo.mfa.configures;
 
 import com.example.demo.mfa.configures.filter.CustomUsernamePasswordAuthenticationFilter;
 import com.example.demo.mfa.configures.filter.PreUsernamePasswordAuthenticationFilter;
+import com.example.demo.mfa.configures.handler.FailureHandler;
+import com.example.demo.mfa.configures.handler.SuccessHandler;
 import com.example.demo.mfa.configures.provider.CustomDaoAuthenticationProvider;
 import com.example.demo.mfa.service.MfaService;
 import com.example.demo.mfa.service.UserService;
@@ -78,7 +80,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private CustomUsernamePasswordAuthenticationFilter customUsernamePasswordAuthenticationFilter() throws Exception {
         CustomUsernamePasswordAuthenticationFilter customUsernamePasswordAuthenticationFilter = new CustomUsernamePasswordAuthenticationFilter(this.authenticationManagerBean());
-//        customUsernamePasswordAuthenticationFilter.setAuthenticationSuccessHandler(new SuccessHan);
+        customUsernamePasswordAuthenticationFilter.setAuthenticationSuccessHandler(new SuccessHandler());
+        customUsernamePasswordAuthenticationFilter.setAuthenticationFailureHandler(new FailureHandler());
 
         return customUsernamePasswordAuthenticationFilter;
     }
