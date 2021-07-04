@@ -22,6 +22,11 @@ import java.io.IOException;
 
 public class CustomUsernamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
+    private boolean postOnly = true;
+    private SessionAuthenticationStrategy sessionAuthenticationStrategy = new NullAuthenticatedSessionStrategy();
+    private boolean continueChainBeforeSuccessfulAuthentication = false;
+    private static final AntPathRequestMatcher DEFAULT_ANT_PATH_REQUEST_MATCHER = new AntPathRequestMatcher("/login", "POST");
+
     public CustomUsernamePasswordAuthenticationFilter() {
         super();
     }
@@ -29,11 +34,6 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
     public CustomUsernamePasswordAuthenticationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
     }
-
-    private boolean postOnly = true;
-    private SessionAuthenticationStrategy sessionAuthenticationStrategy = new NullAuthenticatedSessionStrategy();
-    private boolean continueChainBeforeSuccessfulAuthentication = false;
-    private static final AntPathRequestMatcher DEFAULT_ANT_PATH_REQUEST_MATCHER = new AntPathRequestMatcher("/login", "POST");
 
     @Override
     public void setPostOnly(boolean postOnly) {
