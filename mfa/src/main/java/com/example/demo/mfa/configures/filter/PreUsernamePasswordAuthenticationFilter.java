@@ -4,14 +4,12 @@ import com.example.demo.mfa.data.dto.MfaDto;
 import com.example.demo.mfa.data.entities.UserEntity;
 import com.example.demo.mfa.service.MfaService;
 import com.example.demo.mfa.service.UserService;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.html.Option;
 import java.io.IOException;
 import java.util.Optional;
 
