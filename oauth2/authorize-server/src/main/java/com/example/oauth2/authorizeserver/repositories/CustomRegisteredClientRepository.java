@@ -1,6 +1,7 @@
 package com.example.oauth2.authorizeserver.repositories;
 
 import com.example.oauth2.authorizeserver.models.entities.OauthClientEntity;
+import com.example.oauth2.authorizeserver.services.OauthClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
@@ -13,21 +14,21 @@ import java.util.Arrays;
 @Slf4j
 public class CustomRegisteredClientRepository implements RegisteredClientRepository {
 
-    private final OauthClientRepository oauthClientRepository;
+    private final OauthClientService oauthClientService;
 
     @Autowired
-    public CustomRegisteredClientRepository(OauthClientRepository oauthClientRepository) {
-        this.oauthClientRepository = oauthClientRepository;
+    public CustomRegisteredClientRepository(OauthClientService oauthClientService) {
+        this.oauthClientService = oauthClientService;
     }
 
     @Override
     public RegisteredClient findById(String id) {
-        return null;
+        return buildRegisteredClient(oauthClientService.getOauthClientById(id));
     }
 
     @Override
     public RegisteredClient findByClientId(String clientId) {
-        return null;
+        return buildRegisteredClient(oauthClientService.getOauthClientByClientId(clientId));
     }
 
     private RegisteredClient buildRegisteredClient(OauthClientEntity oauthClientEntity) {

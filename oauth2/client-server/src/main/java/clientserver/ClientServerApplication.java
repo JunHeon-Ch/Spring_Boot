@@ -1,12 +1,13 @@
-package com.example.oauth2.authorizeserver;
+package clientserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AuthorizeServerApplication {
+public class ClientServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthorizeServerApplication.class, args);
+        SpringApplication.run(ClientServerApplication.class, args);
     }
+
 }
